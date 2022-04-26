@@ -1,22 +1,19 @@
 ﻿namespace HWU_Discord_Bot.CommandManager;
 public class Command
 {
-
-}
-public class BaseCommand
+    delegate void cmdDel(MessageData msg, string[] args);
+    public static CommandCollection Instance { get =>
+new()
 {
-    public BaseCommand(string cmd, string? description, bool exutable, Action<string[]>? action)
+    Commands = new()
     {
-        Cmd = cmd;
-        Description = description;
-        Executable = exutable;
-        Action = action;
-    }
-    public BaseCommand(string cmd, string? description, Action<string[]>? action) : this(cmd, description, true, action) { }
-    public BaseCommand(string cmd) : this(cmd, null, false, null) { }
-    public string Cmd { get; set; }
-    public string? Description { get; set; }
-    public bool Executable { get; set; }    
-    public Action<string[]>? Action { get; set; }
-    public void Execute(params string[] args) => Action.Invoke(args);
-} 
+        new("ping", "Get a response from the bot.", new((MessageData msg, string[] args) =>
+        {
+            discord.SendMessage("pong", msg.ChannelID);
+        }), 0),
+        new("pong", "Get a response from the bot.", new((MessageData msg, string[] args) =>
+        {
+            discord.SendMessage("ping", msg.ChannelID);
+        }), 0),
+    },
+};}}

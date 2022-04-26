@@ -7,4 +7,6 @@ public class Wrapper
     public static CommandService commandService;
     public static CommandHandler commandHandler;
     public static CommandCollection commands;
+    public static Config cfg;
+    public static Discord discord;
 }
