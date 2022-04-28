@@ -17,7 +17,7 @@ public class CommandHandler
         string text = msg.Text;
         if (!text.StartsWith(cfg.Prefix))
             return;
-        text = text.Substring(cfg.Prefix.Length);
+        text = text.Substring(cfg.Prefix.Length).TrimStart();
         BaseCommand? com = IsCmd(text);
         if(com != null)
         {
