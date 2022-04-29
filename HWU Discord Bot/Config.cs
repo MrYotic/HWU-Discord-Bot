@@ -1,4 +1,5 @@
 ﻿using HWU_Discord_Bot.HWUSide;
+using HWU_Discord_Bot.Map;
 using static Newtonsoft.Json.JsonConvert;
 namespace HWU_Discord_Bot;
 public class Config
@@ -8,4 +9,5 @@ public class Config
     public string Path { get; set; } = $@"C:\Users\{Environment.UserName}\HWUDiscordCfg.json";
     public string Prefix { get; set; } = "=>";
     public List<Comrade> FollowComrades { get; set; }
+    public HighwayList HighwayList { get; set; }
 }
