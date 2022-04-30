@@ -20,7 +20,7 @@ public class Program
     {
         cfg = new Config();
         cfg.Load();
-        var token = "OTY3OTM0OTA5MzQxNjU1MDQw.YmXhoQ.Oy5OOFNLso7wOKvQWpXP7A9FEQw"; //discord token application
+        var token = "Don't look"; //discord token application
         bot = new DiscordSocketClient();
         bot.Log += Log;
         await bot.LoginAsync(TokenType.Bot, token);
